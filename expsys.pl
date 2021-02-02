@@ -1,16 +1,16 @@
 /* TODO Change the flavor text below */
 ask(Patient, Question):-
-    write(Patient), write(", do you"), write(Question), write("? "),
+    write(Patient), write(", "), write(Question),
     read(N),
     ((N == yes ; N == y) -> assert(yes(Question)) ; assert(no(Question)), fail).
 
-:- dynamic yes/1,no/1.	
+:- dynamic yes/1,no/1.
 
 verify(P,S) :-
     (yes(S) -> true ;
     (no(S) -> fail ; ask(P,S))).
 
-undo :- retract(yes(_)),fail. 
+undo :- retract(yes(_)),fail.
 undo :- retract(no(_)),fail.
 undo.
 
@@ -19,138 +19,138 @@ undo.
 */
 symptom(Patient, abdominal_pain):-
     verify(Patient, "Have you been experiencing ABDOMINAL PAIN recently (y/n) ?").
-    
+
 symptom(Patient, abdominal_weakness):-
     verify(Patient, "Do you feel some kind of WEAKNESS in your ABDOMEN (y/n) ?").
 
 symptom(Patient, anemia):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Are you by any chance, ANEMIC (y/n) ?").
 
 symptom(Patient, anxiety):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Lately, have you been experiencing ANXIETY (y/n) ?").
 
 symptom(Patient, blood_clotting):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Can the patient's body perform blood clotting (y/n) ?").
 
 symptom(Patient, bladder_issues):-
-    verify(Patient, " (y/n) ?").
-    
+    verify(Patient, "Do you have BLADDER ISSUES (y/n) ?").
+
 symptom(Patient, cognitive_problems):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Do you find yourself trying hard to concentrate (y/n) ?").
 
 symptom(Patient, cold_intorelance):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Hmmm, easily be cold (y/n) ?").
 
 symptom(Patient, constipation):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Experiencing CONSTIPATION? (y/n) ?").
 
 symptom(Patient, diarrhea):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Recently having problems with DIARRHEA (y/n) ?").
 
 symptom(Patient, depression):-
-    verify(Patient, " (y/n) ?").
-    
+    verify(Patient, "Lately or currently having emotional imbalance (y/n) ?").
+
 symptom(Patient, dizziness):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Feeling DIZZY perhaps (y/n) ?").
 
 symptom(Patient, fever):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Do you have a fever right now (y/n) ?").
 
 symptom(Patient, fatigue):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Are you experiencing fatigue (y/n) ?").
 
 symptom(Patient, goiter):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Does the patient have a goiter (y/n) ?").
 
 symptom(Patient, hair_loss):-
-    verify(Patient, " (y/n) ?").
-    
+    verify(Patient, "Are you experiencing excessive hair loss (y/n) ?").
+
 symptom(Patient, heat_intolerance):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Very sensitive to hot climate or weather (y/n) ?").
 
 symptom(Patient, hungry):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Are you always HUNGRY (y/n) ?").
 
 symptom(Patient, joint_pain):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Experiencing and JOINT PAIN (y/n) ?").
 
 symptom(Patient, joint_stiffness):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "How about experiencing JOINT STIFFNESS (y/n) ?").
 
 symptom(Patient, joint_swelling):-
-    verify(Patient, " (y/n) ?").
-    
+    verify(Patient, "Another one, how about JOINT SWELLING? (y/n) ?").
+
 symptom(Patient, kidney_problems):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Currently experiencing kidney problems (y/n) ?").
 
 symptom(Patient, light_sensitivity):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Are you sensitive to light (y/n) ?").
 
 symptom(Patient, loss_of_reflexes):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Recently finding your reflexes slow or not responsive (y/n) ?").
 
 symptom(Patient, loss_of_balance):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Lately has been LOSING BALANCE (y/n) ?").
 
 symptom(Patient, mouth_sores):-
-    verify(Patient, " (y/n) ?").
-    
+    verify(Patient, "Does your mouth have SORES (y/n) ?").
+
 symptom(Patient, muscle_pain):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Do you have muscle pain somewhere in your body (y/n) ?").
 
 symptom(Patient, muscle_weakness):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Experiencing MUSCLE WEAKNESS (y/n) ?").
 
 symptom(Patient, memory_problems):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Finding yourself lost or forgetful (y/n) ?").
 
 symptom(Patient, nausea):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Experiencing NAUSEA (y/n) ?").
 
 symptom(Patient, numbness):-
-    verify(Patient, " (y/n) ?").
-    
+    verify(Patient, "Experiencing NUMBNESS somewhere in your body (y/n) ?").
+
 symptom(Patient, nervousness_or_irritability):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Lately, you are IRRITABLE or feeling NERVOUS (y/n) ?").
 
 symptom(Patient, rashes):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Do you have rashes (y/n) ?").
 
 symptom(Patient, rectal_bleeding):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Is experiencing rectal bleeding (y/n) ?").
 
 symptom(Patient, sexual_dysfunction):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Currently suffering from SEXUAL DYSFUNCTION (y/n) ?").
 
 symptom(Patient, tiredness):-
-    verify(Patient, " (y/n) ?").
-    
+    verify(Patient, "Do you consider yourself TIRED right now (y/n) ?").
+
 symptom(Patient, tingling):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Feeling something TINGLING (y/n) ?").
 
 symptom(Patient, thirsty):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Do you consider yourself THIRSTY right now (y/n) ?").
 
 symptom(Patient, trembling_hands):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Experiencing TREMBLING HANDS (y/n) ?").
 
 symptom(Patient, trouble_sleeping):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Have TROUBLE SLEEPING (y/n) ?").
 
 symptom(Patient, vision_problems):-
-    verify(Patient, " (y/n) ?").
-    
+    verify(Patient, "Do you have VISION PROBLEMS (y/n) ?").
+
 symptom(Patient, vomiting):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Have VOMITED these past few days (y/n) ?").
 
 symptom(Patient, weakness):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Do you consider yourself WEAK as of now (y/n) ?").
 
 symptom(Patient, weight_loss):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Do you experience dramatic WEIGHT LOSS (y/n) ?").
 
 symptom(Patient, weight_gain):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Are you experiencing dramatic WEIGHT GAIN (y/n) ?").
 
 hypothesis(Patient, rheumatoid_arthritis ):-
     symptom(Patient, fatigue),
@@ -188,7 +188,7 @@ hypothesis(Patient, inflammatory_bowel_disease):-
 hypothesis(Patient, multiple_sclerosis):-
     symptom(Patient, anxiety),
     symptom(Patient, bladder_issues),
-    symptom(Patient, cognitive_problems).
+    symptom(Patient, cognitive_problems),
     symptom(Patient, depression),
     symptom(Patient, diarrhea),
     symptom(Patient, dizziness),
@@ -230,7 +230,7 @@ hypothesis(Patient, psoriasis):-
     symptom(Patient, weakness),
     symptom(Patient, weight_loss).
 
-hypothesis(Patient, graves'_disease):-
+hypothesis(Patient, graves_disease):-
     symptom(Patient, diarrhea),
     symptom(Patient, fatigue),
     symptom(Patient, goiter),
@@ -241,7 +241,7 @@ hypothesis(Patient, graves'_disease):-
     symptom(Patient, trouble_sleeping),
     symptom(Patient, weight_loss).
 
-hypothesis(Patient, hashimoto's_thyroiditis):-
+hypothesis(Patient, hashimotos_thyroiditis):-
     symptom(Patient, cold_intorelance),
     symptom(Patient, constipation),
     symptom(Patient, depression),
@@ -253,9 +253,9 @@ hypothesis(Patient, hashimoto's_thyroiditis):-
 
 /* TODO Change the flavor text here too */
 start:-
-    write("What is the name of the Patient? "),
-    read(Patient),
-    hypothesis(Patient, Disease),
+    write("What is the name of the Patient? Enter here: "),
+    read(Patient), write("\n\n          ------[SYMPTOMS CHECK]------\n"),
+    hypothesis(Patient, Disease), write("\n\n              ------[RESULT]------\n"),
     write(Patient), write(" probably has "), write(Disease), write("."), nl.
 
 start :-
