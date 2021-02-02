@@ -1,3 +1,4 @@
+/* TODO Change the flavor text below */
 ask(Patient, Question):-
     write(Patient), write(", do you"), write(Question), write("? "),
     read(N),
@@ -13,11 +14,14 @@ undo :- retract(yes(_)),fail.
 undo :- retract(no(_)),fail.
 undo.
 
+/* TODO Add flavor text for all of the symptoms
+   You can follow what I did for the "abdominal_pain" and "abdominal_weakness" symptom
+*/
 symptom(Patient, abdominal_pain):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Have you been experiencing ABDOMINAL PAIN recently (y/n) ?").
     
 symptom(Patient, abdominal_weakness):-
-    verify(Patient, " (y/n) ?").
+    verify(Patient, "Do you feel some kind of WEAKNESS in your ABDOMEN (y/n) ?").
 
 symptom(Patient, anemia):-
     verify(Patient, " (y/n) ?").
@@ -247,6 +251,7 @@ hypothesis(Patient, hashimoto's_thyroiditis):-
     symptom(Patient, tiredness),
     symptom(Patient, weight_gain).
 
+/* TODO Change the flavor text here too */
 start:-
     write("What is the name of the Patient? "),
     read(Patient),
