@@ -17,6 +17,10 @@ undo.
 /* TODO Add flavor text for all of the symptoms
    You can follow what I did for the "abdominal_pain" and "abdominal_weakness" symptom
 */
+
+symptom(Patient, emergency) :-
+    verify(Patient, "are you safe and NOT in an EMERGENCY situation? (y/n)").
+
 symptom(Patient, abdominal_pain):-
     verify(Patient, "Have you been experiencing ABDOMINAL PAIN recently (y/n) ?").
 
@@ -152,7 +156,10 @@ symptom(Patient, weight_loss):-
 symptom(Patient, weight_gain):-
     verify(Patient, "Are you experiencing dramatic WEIGHT GAIN (y/n) ?").
 
-hypothesis(Patient, rheumatoid_arthritis ):-
+hypothesis(Patient, "nothing to fear. Please refer to a large medical facility") :-
+    symptom(Patient, emergency).
+
+hypothesis(Patient, "Rheumatoid arthritis"):-
     symptom(Patient, fatigue),
     symptom(Patient, fever),
     symptom(Patient, joint_pain),
@@ -162,7 +169,7 @@ hypothesis(Patient, rheumatoid_arthritis ):-
     symptom(Patient, weakness),
     symptom(Patient, weight_loss).
 
-hypothesis(Patient, systemic_lupus_erythematosus):-
+hypothesis(Patient, "Systemic lupus erythematosus"):-
     symptom(Patient, abdominal_pain),
     symptom(Patient, anemia),
     symptom(Patient, blood_clotting),
@@ -178,14 +185,14 @@ hypothesis(Patient, systemic_lupus_erythematosus):-
     symptom(Patient, rashes),
     symptom(Patient, vision_problems).
 
-hypothesis(Patient, inflammatory_bowel_disease):-
+hypothesis(Patient, "Inflammatory bowel disease"):-
     symptom(Patient, abdominal_pain),
     symptom(Patient, diarrhea),
     symptom(Patient, fatigue),
     symptom(Patient, rectal_bleeding),
     symptom(Patient, weight_loss).
 
-hypothesis(Patient, multiple_sclerosis):-
+hypothesis(Patient, "Multiple sclerosis"):-
     symptom(Patient, anxiety),
     symptom(Patient, bladder_issues),
     symptom(Patient, cognitive_problems),
@@ -198,7 +205,7 @@ hypothesis(Patient, multiple_sclerosis):-
     symptom(Patient, tingling),
     symptom(Patient, vision_problems).
 
-hypothesis(Patient, type_1_diabetes_mellitus):-
+hypothesis(Patient, "Type 1 diabetes mellitus"):-
     symptom(Patient, bladder_issues),
     symptom(Patient, fatigue),
     symptom(Patient, hungry),
@@ -208,20 +215,20 @@ hypothesis(Patient, type_1_diabetes_mellitus):-
     symptom(Patient, weight_loss),
     symptom(Patient, vision_problems).
 
-hypothesis(Patient, guillain_barre_syndrome):-
+hypothesis(Patient, "Guillain Barre Syndrome"):-
     symptom(Patient, abdominal_weakness),
     symptom(Patient, diarrhea),
     symptom(Patient, nausea),
     symptom(Patient, tingling),
     symptom(Patient, vomiting).
 
-hypothesis(Patient, chronic_inflammatory_demyelinating_polyneuropathy):-
+hypothesis(Patient, "Chronic Inflammatory Demyelinating Polyneuropathy"):-
     symptom(Patient, loss_of_balance),
     symptom(Patient, loss_of_reflexes),
     symptom(Patient, tingling),
     symptom(Patient, weakness).
 
-hypothesis(Patient, psoriasis):-
+hypothesis(Patient, "Psoriasis"):-
     symptom(Patient, fatigue),
     symptom(Patient, fever),
     symptom(Patient, joint_pain),
@@ -230,7 +237,7 @@ hypothesis(Patient, psoriasis):-
     symptom(Patient, weakness),
     symptom(Patient, weight_loss).
 
-hypothesis(Patient, graves_disease):-
+hypothesis(Patient, "graves' disease"):-
     symptom(Patient, diarrhea),
     symptom(Patient, fatigue),
     symptom(Patient, goiter),
@@ -241,7 +248,7 @@ hypothesis(Patient, graves_disease):-
     symptom(Patient, trouble_sleeping),
     symptom(Patient, weight_loss).
 
-hypothesis(Patient, hashimotos_thyroiditis):-
+hypothesis(Patient, "Hashimoto's thyroiditis"):-
     symptom(Patient, cold_intorelance),
     symptom(Patient, constipation),
     symptom(Patient, depression),
