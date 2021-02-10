@@ -1,10 +1,20 @@
-/* TODO Change the flavor text below */
+
+:- dynamic yes/1,no/1.
+
+start:-
+    write("What is the name of the Patient? Enter here: "),
+    read(Patient), write("\n\n          ------[SYMPTOMS CHECK]------\n"),
+    hypothesis(Patient, Disease), write("\n\n              ------[RESULT]------\n"),
+    write(Patient), write(" probably has "), write(Disease), write("."), nl, undo.
+
+start :- nl,
+    write("Sorry, I don't seem to be able to"),nl,
+    write("diagnose the disease."),nl, undo.
+
 ask(Patient, Question):-
     write(Patient), write(", "), write(Question),
     read(N),
     ((N == yes ; N == y) -> assert(yes(Question)) ; assert(no(Question)), fail).
-
-:- dynamic yes/1,no/1.
 
 verify(P,S) :-
     (yes(S) -> true ;
@@ -13,10 +23,6 @@ verify(P,S) :-
 undo :- retract(yes(_)),fail.
 undo :- retract(no(_)),fail.
 undo.
-
-/* TODO Add flavor text for all of the symptoms
-   You can follow what I did for the "abdominal_pain" and "abdominal_weakness" symptom
-*/
 
 symptom(Patient, emergency) :-
     verify(Patient, "are you safe and NOT in an EMERGENCY situation? (y/n)").
@@ -257,14 +263,3 @@ hypothesis(Patient, "Hashimoto's thyroiditis"):-
     symptom(Patient, muscle_pain),
     symptom(Patient, tiredness),
     symptom(Patient, weight_gain).
-
-/* TODO Change the flavor text here too */
-start:-
-    write("What is the name of the Patient? Enter here: "),
-    read(Patient), write("\n\n          ------[SYMPTOMS CHECK]------\n"),
-    hypothesis(Patient, Disease), write("\n\n              ------[RESULT]------\n"),
-    write(Patient), write(" probably has "), write(Disease), write("."), nl.
-
-start :-
-    write("Sorry, I don't seem to be able to"),nl,
-    write("diagnose the disease."),nl.
